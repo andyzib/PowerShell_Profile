@@ -92,3 +92,22 @@ Function New-DigiCertDnsCname {
             -DnsRecords (New-AzDnsRecordConfig -Cname $Alias)
     }
 }
+
+<#
+
+Notes: 
+
+Going to improve this a bit to use CNAME and TXT. 
+
+Also going add more flexiblity with DNS providers so I can quickly update Azure, AWS, possibly CloudFlare. (the three providers I use at the moment.) 
+
+And output plain text that can be added to DNS I don't support in this. 
+
+DNS TXT Entry
+TXT entry on either subdomain.example.com or
+_dnsauth.subdomain.example.com
+Random Value
+fblphpfzxjghkrrykzpklma5odw4fjpv
+
+
+#>
