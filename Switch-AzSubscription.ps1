@@ -1,11 +1,11 @@
-<#
-Add this to...
-Windows PowerShell 5: Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-PowerShell Core 6+: Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-Have not tested on non-Windows platforms or Azure Cloud Shell. 
-#>
 Function Switch-AzSubscription {
-    [CmdletBinding()]
+
+    if (Get-Module -ListAvailable -Name Microsoft.PowerShell.ConsoleGuiTools) {
+        Import-Module Microsoft.PowerShell.ConsoleGuiTools
+        $ConsoleGridView = $true
+    } else {
+        $ConsoleGridView = $false
+    }
     
     #region Verify Connection to Azure.
     $AzContext = Get-AzContext
@@ -20,7 +20,13 @@ Function Switch-AzSubscription {
         Break    
     }
     Write-Host "Current Subscription: $($AzContext.Subscription.Name)"
-    $selection = Get-AzSubscription | Select-Object Name,Id,State | Out-GridView -Title "Select Azure Subscription" -OutputMode Single
+
+    if ($ConsoleGridView) {
+        $selection = Get-AzSubscription | Select-Object Name,Id,State | Out-ConsoleGridView -Title "Select Azure Subscription" -OutputMode Single
+    } else {
+        $selection = Get-AzSubscription | Select-Object Name,Id,State | Out-GridView -Title "Select Azure Subscription" -OutputMode Single
+    }
+    
     if ( $null -eq $selection) {
         Write-Host "Cancel was clicked."
         Break
