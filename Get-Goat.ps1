@@ -1,5 +1,5 @@
 Function Get-Goat {
-    $GoatFarming = $goats = @("You don't have to monitor the utilization on a goat.",
+    $GoatFarming = @("You don't have to monitor the utilization on a goat.",
 	"Milk a goat and the goat stays milked for a while.",
 	"There are no 32-bit goats.",
 	"You don't have to do a demo on a goat. And if you ever do, the goat will do what it's supposed to do and there's not a lot that can keep it from doing it.",
@@ -117,7 +117,8 @@ Function Get-Goat {
 	"GoatEng.",
 	"Macintosh goat users will not make fun of you because your goat is more problematic & complicated than the goat they just bought.",
 	"Goat farmers who voted for Perot have pretty much the same type of goat as everyone else, so they can go back to arguing about politics like they were doing before 1984.")
+
     Write-Host "Why goat farming is better than IT: " -NoNewline -ForegroundColor DarkCyan
     $GoatFarming | Get-Random
     Write-Host ""
-} 
+}
