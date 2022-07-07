@@ -32,6 +32,7 @@ Function Switch-AzSubscription {
         Break
     } else {
         Set-AzContext $selection.id
+        az account set --subscription "$($selection.id)"
     }
 }
 Set-Alias -Name "cdazsub" -Value Switch-AzSubscription
