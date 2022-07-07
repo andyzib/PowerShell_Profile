@@ -1,3 +1,13 @@
+<#
+
+Created by: Andrew Zbikowski <andrew@itouthouse.com>
+
+This adds Swtich-AzSubscription (Alias: chazsub) to your PowerShell Profile. 
+If you have the Microsoft.PowerShell.ConsoleGuiTools module installed (Required for Non-Windows, Highly Recommended for Windows)
+available Azure Subsriptions will be presented with Out-ConsoleGridView. Otherwise Out-GridView is used. 
+I really should fix this to fail gracefully on non-Windows platforms. 
+
+#>
 Function Switch-AzSubscription {
 
     if (Get-Module -ListAvailable -Name Microsoft.PowerShell.ConsoleGuiTools) {
