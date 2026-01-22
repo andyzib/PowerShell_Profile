@@ -162,7 +162,7 @@ Function Initialize-AzureTenantsJSON {
         Write-Host "Created example AzureTenants.json at $AzureTenantsJSON" -ForegroundColor Green
     }
 }
-Create-AzureTenantsJSON
+Initialize-AzureTenantsJSON
 
 # Console Grid View Module Install
 if ( -Not (Get-Module -ListAvailable -Name Microsoft.PowerShell.ConsoleGuiTools) ) {
@@ -171,3 +171,4 @@ if ( -Not (Get-Module -ListAvailable -Name Microsoft.PowerShell.ConsoleGuiTools)
 
 Write-Host "To login all your Azure Tenants, run: conazsub" -ForegroundColor Cyan
 Write-Host "To switch Azure Subscriptions, run: chazsub" -ForegroundColor Cyan
+Write-Host ""
