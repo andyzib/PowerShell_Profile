@@ -1,6 +1,9 @@
 #requires -version 5
 #Requires -PSEdition Desktop
-Invoke-WindowsToastNotification {
+<#
+Example: toast -ToastTitle "Mana Toast" -ToastMessage "It's toast. It refills your mana. That's it."
+#>
+Function Invoke-WindowsToastNotification {
 	Param(
 		[string]$ToastTitle,
 		[string]$ToastMessage
@@ -27,3 +30,4 @@ Invoke-WindowsToastNotification {
 	[Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime]::CreateToastNotifier($AppId).Show($XmlDocument)
 
 }
+Set-Alias -Name "toast" -Value Invoke-WindowsToastNotification
