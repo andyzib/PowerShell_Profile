@@ -169,3 +169,5 @@ if ( -Not (Get-Module -ListAvailable -Name Microsoft.PowerShell.ConsoleGuiTools)
         Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser
 }
 
+Write-Host "To login all your Azure Tenants, run: conazsub" -ForegroundColor Cyan
+Write-Host "To switch Azure Subscriptions, run: chazsub" -ForegroundColor Cyan
